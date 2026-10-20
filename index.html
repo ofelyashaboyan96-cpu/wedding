@@ -107,7 +107,7 @@
         <h2 class="title reveal">Հասցեներ</h2>
 
         <article class="venue reveal">
-          <!-- Նկար՝ images/church.jpg (եթե չկա, երևում է գծանկարը) -->
+          <!-- Նկար՝ church.jpg (եթե չկա, երևում է գծանկարը) -->
           <div class="venue__photo venue__photo--church">
             <svg class="icon icon--dark" viewBox="0 0 80 80" aria-hidden="true">
               <path d="M40 6v10M35 11h10"/>
@@ -126,7 +126,7 @@
         </article>
 
         <article class="venue reveal">
-          <!-- Նկար՝ images/restaurant.jpg -->
+          <!-- Նկար՝ restaurant.jpg -->
           <div class="venue__photo venue__photo--restaurant">
             <svg class="icon icon--dark" viewBox="0 0 80 80" aria-hidden="true">
               <path d="M22 14h14l-2 20a5 5 0 0 1-10 0z"/>
@@ -202,6 +202,14 @@
       <p class="footer__date">20 · 11 · 2026</p>
     </div>
   </footer>
+
+  <!-- ============ ԵՐԱԺՇՏՈՒԹՅՈՒՆ ============ -->
+  <!-- Երգը դրեք music.mp3 անունով։ Եթե ֆայլ չկա, կոճակը չի երևա։ -->
+  <audio id="bg-music" src="music.mp3" loop preload="metadata"></audio>
+  <button class="music-btn" id="music-btn" type="button" aria-label="Միացնել երաժշտությունը" hidden>
+    <svg class="music-btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="music-btn__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>

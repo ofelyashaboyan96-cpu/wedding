@@ -61,7 +61,7 @@ h1, h2, h3, p { margin: 0; }
 .label { font-size: .95rem; color: var(--muted); margin-bottom: 18px; }
 
 /* ---------- 1. Գլխավոր էկրան ---------- */
-/* Ձեր լուսանկարը դրեք images/hero.jpg անունով։
+/* Ձեր լուսանկարը դրեք hero.jpg անունով։
    Եթե նկար չկա, կերևա մուգ ֆոնը։ */
 .hero {
   position: relative;
@@ -75,7 +75,7 @@ h1, h2, h3, p { margin: 0; }
   background-color: #111;
   background-image:
     linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .6)),
-    url("images/hero.jpg"),
+    url("hero.jpg"),
     radial-gradient(circle at 50% 30%, #3a3a3a 0%, #111 70%);
   background-size: cover;
   background-position: center;
@@ -242,8 +242,8 @@ h1, h2, h3, p { margin: 0; }
   background-size: cover;
   background-position: center;
 }
-.venue__photo--church::after { background-image: url("images/church.jpg"); }
-.venue__photo--restaurant::after { background-image: url("images/restaurant.jpg"); }
+.venue__photo--church::after { background-image: url("church.jpg"); }
+.venue__photo--restaurant::after { background-image: url("restaurant.jpg"); }
 
 .icon--dark { color: var(--ink); width: 96px; height: 96px; }
 
@@ -360,7 +360,7 @@ textarea.field { border-radius: 18px; resize: vertical; }
   background-color: #111;
   background-image:
     linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)),
-    url("images/footer.jpg");
+    url("footer.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -372,6 +372,31 @@ textarea.field { border-radius: 18px; resize: vertical; }
 }
 .footer__monogram span { font-family: var(--font-script); font-size: 1.2em; }
 .footer__date { font-family: var(--font-num); letter-spacing: 4px; opacity: .85; }
+
+/* ---------- Երաժշտության կոճակ ---------- */
+.music-btn {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 50;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: 50%;
+  background: rgba(20, 20, 20, .75);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.music-btn[hidden] { display: none; }
+.music-btn svg { width: 20px; height: 20px; fill: currentColor; }
+.music-btn__pause { display: none; }
+.music-btn.is-playing .music-btn__play { display: none; }
+.music-btn.is-playing .music-btn__pause { display: block; }
 
 /* ---------- Անիմացիա՝ հայտնվել scroll-ի ժամանակ ---------- */
 .js .reveal {

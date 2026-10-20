@@ -83,7 +83,52 @@ document.documentElement.classList.add("js");
 
 
 /* =========================================================
-   3. RSVP ձև
+   3. Երաժշտություն
+   Բրաուզերները թույլ չեն տալիս ձայնով երաժշտությունն ինքնուրույն
+   միացնել, դրա համար այն սկսվում է հյուրի առաջին հպումից։
+   ========================================================= */
+(function music() {
+  const audio = document.getElementById("bg-music");
+  const btn = document.getElementById("music-btn");
+  if (!audio || !btn) return;
+
+  let started = false; // արդյո՞ք երաժշտությունն արդեն սկսվել է կամ հյուրն ինքն է ընտրել
+
+  // Կոճակը ցույց ենք տալիս միայն եթե music.mp3 ֆայլը կա
+  const showButton = () => { btn.hidden = false; };
+  audio.addEventListener("loadedmetadata", showButton, { once: true });
+  if (audio.readyState >= 1) showButton();
+
+  function setState(playing) {
+    btn.classList.toggle("is-playing", playing);
+    btn.setAttribute("aria-label", playing ? "Անջատել երաժշտությունը" : "Միացնել երաժշտությունը");
+  }
+  audio.addEventListener("play", () => setState(true));
+  audio.addEventListener("pause", () => setState(false));
+
+  // Կոճակը՝ միացնել / անջատել
+  btn.addEventListener("click", () => {
+    started = true;
+    if (audio.paused) {
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
+  });
+
+  // Առաջին հպումը էջի ցանկացած մասում միացնում է երաժշտությունը
+  function startOnFirstTap(event) {
+    if (started || btn.hidden || btn.contains(event.target)) return;
+    started = true;
+    audio.play().catch(() => { started = false; });
+  }
+  document.addEventListener("click", startOnFirstTap);
+  document.addEventListener("touchend", startOnFirstTap, { passive: true });
+})();
+
+
+/* =========================================================
+   4. RSVP ձև
    ========================================================= */
 (function rsvp() {
   const form = document.getElementById("rsvp-form");
