@@ -1,0 +1,414 @@
+/* =========================================================
+   Եվա և Արամ — Հարսանյաց հրավեր
+   Գույներն ու տառատեսակները փոխելու համար խմբագրեք :root-ը
+   ========================================================= */
+
+:root {
+  --ink: #141414;          /* հիմնական մուգ գույն */
+  --paper: #ffffff;        /* սպիտակ ֆոն */
+  --muted: #6e6e6e;        /* երկրորդական տեքստ */
+  --line: #d6d6d6;         /* բարակ գծեր */
+  --dark-bg: #0f0f0f;      /* մուգ բաժնի ֆոն */
+  --on-dark: #f4f1ec;      /* տեքստ մուգ ֆոնի վրա */
+
+  --font-main: "Noto Serif Armenian", Georgia, serif;
+  --font-num: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Pinyon Script", cursive;
+}
+
+/* ---------- Հիմք ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-main);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section { padding: 80px 0; }
+.section--tight { padding-top: 0; }
+.section--light { background: var(--paper); color: var(--ink); }
+.section--dark { background: var(--dark-bg); color: var(--on-dark); }
+.section--border { border-top: 1px solid var(--line); }
+
+.title {
+  font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.text { font-size: 1.05rem; color: #3a3a3a; }
+.text--small { font-size: .95rem; color: var(--muted); margin-top: -8px; }
+.dots { letter-spacing: 12px; font-size: 1.4rem; margin-bottom: 20px; }
+.label { font-size: .95rem; color: var(--muted); margin-bottom: 18px; }
+
+/* ---------- 1. Գլխավոր էկրան ---------- */
+/* Ձեր լուսանկարը դրեք images/hero.jpg անունով։
+   Եթե նկար չկա, կերևա մուգ ֆոնը։ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background-color: #111;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .6)),
+    url("images/hero.jpg"),
+    radial-gradient(circle at 50% 30%, #3a3a3a 0%, #111 70%);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__inner { padding: 0 20px; }
+
+.hero__date {
+  font-family: var(--font-num);
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.hero__date::before,
+.hero__date::after {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: rgba(255, 255, 255, .7);
+}
+
+.hero__monogram {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(5rem, 22vw, 9rem);
+  line-height: 1;
+}
+.hero__monogram span {
+  font-size: .5em;
+  margin: 0 .1em;
+  opacity: .85;
+}
+
+.hero__names {
+  margin-top: 18px;
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  letter-spacing: 5px;
+}
+
+/* Ներքև սլաք */
+.hero__scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: 14px;
+}
+.hero__scroll span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 3px;
+  height: 8px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: #fff;
+  animation: scrollHint 1.8s ease-in-out infinite;
+}
+@keyframes scrollHint {
+  0%   { opacity: 0; transform: translateY(0); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+/* ---------- 2. Ամսաթիվ ---------- */
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+.date-row__side {
+  flex: 1;
+  max-width: 150px;
+  padding: 8px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  font-size: 1rem;
+}
+.date-row__side:last-child { font-family: var(--font-num); font-size: 1.2rem; }
+.date-row__day {
+  font-family: var(--font-num);
+  font-size: 3.6rem;
+  line-height: 1;
+}
+.weekday { margin-top: 12px; color: var(--muted); }
+
+/* ---------- 3. Հետհաշվարկ ---------- */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.countdown__item {
+  border: 1px solid var(--line);
+  padding: 14px 4px;
+}
+.countdown__item span {
+  display: block;
+  font-family: var(--font-num);
+  font-size: 2.1rem;
+  line-height: 1.1;
+}
+.countdown__item small {
+  font-size: .72rem;
+  color: var(--muted);
+}
+
+/* ---------- 4. Ծրագիր ---------- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 30px;
+}
+.icon {
+  width: 72px;
+  height: 72px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .9;
+}
+.timeline__time {
+  font-family: var(--font-num);
+  font-size: 2.6rem;
+  font-weight: 300;
+  margin-top: 8px;
+}
+.timeline__name { font-size: 1.2rem; font-weight: 600; }
+.timeline__place { color: rgba(244, 241, 236, .75); margin-top: 4px; }
+
+/* ---------- 5. Հասցեներ ---------- */
+.venue { margin-top: 40px; }
+.venue + .venue { margin-top: 64px; }
+
+/* Նկարը դրվում է ::after-ով, որ եթե նկար չլինի, գծանկարը երևա */
+.venue__photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f2;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.venue__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.venue__photo--church::after { background-image: url("images/church.jpg"); }
+.venue__photo--restaurant::after { background-image: url("images/restaurant.jpg"); }
+
+.icon--dark { color: var(--ink); width: 96px; height: 96px; }
+
+.venue__name { font-size: 1.15rem; font-weight: 600; margin-top: 20px; }
+.venue__address { color: var(--muted); margin: 4px 0 18px; }
+
+/* ---------- Կոճակներ ---------- */
+.btn {
+  display: inline-block;
+  padding: 11px 34px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: .95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .25s, color .25s;
+}
+.btn:hover,
+.btn:focus-visible { background: #fff; color: var(--ink); }
+.btn:disabled { opacity: .5; cursor: wait; }
+.btn--wide { min-width: 200px; margin-top: 8px; }
+
+/* ---------- 6. RSVP ձև ---------- */
+.rsvp {
+  margin-top: 32px;
+  text-align: left;
+}
+.rsvp__group {
+  border: 0;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.rsvp__group legend {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.radio input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+.radio input::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: scale(0);
+  transition: transform .15s;
+}
+.radio input:checked::before { transform: scale(1); }
+.radio input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.rsvp__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.field {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border: 1px solid #bdbdbd;
+  border-radius: 24px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-main);
+  font-size: 16px; /* 16px-ը թույլ չի տալիս iPhone-ին zoom անել */
+}
+textarea.field { border-radius: 18px; resize: vertical; }
+.field:focus { outline: none; border-color: var(--ink); }
+.field:disabled { background: #f3f3f3; color: #999; }
+.field.is-invalid { border-color: #b3261e; }
+
+.rsvp .btn { display: block; margin: 8px auto 0; }
+
+.rsvp__error {
+  min-height: 1.2em;
+  color: #b3261e;
+  font-size: .9rem;
+  text-align: center;
+}
+.rsvp__success {
+  margin-top: 32px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  font-size: 1.1rem;
+}
+
+/* ---------- 7. Վերջին էկրան ---------- */
+.footer {
+  padding: 90px 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #111;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7)),
+    url("images/footer.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.footer__text { font-size: 1rem; opacity: .85; }
+.footer__monogram {
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+  font-weight: 300;
+  margin: 10px 0;
+}
+.footer__monogram span { font-family: var(--font-script); font-size: 1.2em; }
+.footer__date { font-family: var(--font-num); letter-spacing: 4px; opacity: .85; }
+
+/* ---------- Անիմացիա՝ հայտնվել scroll-ի ժամանակ ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .hero__scroll span { animation: none; }
+}
+
+/* ---------- Համակարգիչ (լայն էկրաններ) ---------- */
+@media (min-width: 768px) {
+  .section { padding: 110px 0; }
+  .section--tight { padding-top: 0; }
+
+  .timeline {
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+  }
+  .timeline__item { flex: 0 1 240px; }
+
+}
+
+/* ---------- Շատ նեղ հեռախոսներ ---------- */
+@media (max-width: 360px) {
+  .rsvp__row { grid-template-columns: 1fr; gap: 0; }
+  .countdown { gap: 6px; }
+  .countdown__item span { font-size: 1.7rem; }
+  .date-row { gap: 10px; }
+  .date-row__day { font-size: 3rem; }
+}

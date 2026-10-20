@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Եվա և Արամ — Հարսանյաց հրավեր</title>
+  <meta name="description" content="Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին՝ 20 նոյեմբերի, 2026">
+
+  <!-- Տառատեսակներ (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+Armenian:wght@300;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ 1. ԳԼԽԱՎՈՐ ԷԿՐԱՆ ============ -->
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__date">20 · 11 · 2026</p>
+      <h1 class="hero__monogram">E<span>&amp;</span>A</h1>
+      <p class="hero__names">ԵՎԱ ԵՎ ԱՐԱՄ</p>
+    </div>
+    <a href="#invite" class="hero__scroll" aria-label="Ներքև">
+      <span></span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ============ 2. ՀՐԱՎԵՐ ============ -->
+    <section id="invite" class="section section--light">
+      <div class="container reveal">
+        <h2 class="title">Սիրելի՛ բարեկամներ<br>և ընկերներ</h2>
+        <p class="dots">· · ·</p>
+        <p class="text">
+          Սիրով հրավիրում ենք Ձեզ կիսելու մեզ հետ
+          մեր կյանքի ամենաուրախ և կարևոր օրը՝ մեր հարսանիքը։
+        </p>
+
+        <div class="date-row">
+          <span class="date-row__side">Նոյեմբեր</span>
+          <span class="date-row__day">20</span>
+          <span class="date-row__side">2026</span>
+        </div>
+        <p class="weekday">Ուրբաթ</p>
+      </div>
+    </section>
+
+    <!-- ============ 3. ՀԵՏՀԱՇՎԱՐԿ ============ -->
+    <section class="section section--light section--tight">
+      <div class="container reveal">
+        <p class="label" id="countdown-label">Մինչև մեր հարսանիքը մնացել է</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown__item"><span id="cd-days">00</span><small>օր</small></div>
+          <div class="countdown__item"><span id="cd-hours">00</span><small>ժամ</small></div>
+          <div class="countdown__item"><span id="cd-minutes">00</span><small>րոպե</small></div>
+          <div class="countdown__item"><span id="cd-seconds">00</span><small>վայրկյան</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. ԾՐԱԳԻՐ ============ -->
+    <section class="section section--dark">
+      <div class="container">
+        <h2 class="title reveal">Ծրագիր</h2>
+
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <!-- Եկեղեցու գծանկար -->
+            <svg class="icon" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M40 6v10M35 11h10"/>
+              <path d="M30 34l10-18 10 18"/>
+              <path d="M30 34h20v12H30z"/>
+              <path d="M14 74V46h52v28"/>
+              <path d="M22 46l-8-8M58 46l8-8"/>
+              <path d="M34 74V62a6 6 0 0 1 12 0v12"/>
+              <path d="M22 58v6M58 58v6"/>
+              <path d="M8 74h64"/>
+            </svg>
+            <p class="timeline__time">14:00</p>
+            <h3 class="timeline__name">Պսակադրություն</h3>
+            <p class="timeline__place">Սաղմոսավանք</p>
+          </div>
+
+          <div class="timeline__item reveal">
+            <!-- Գավաթների գծանկար -->
+            <svg class="icon" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M22 14h14l-2 20a5 5 0 0 1-10 0z"/>
+              <path d="M29 39v24M22 63h14"/>
+              <path d="M44 14h14l-2 20a5 5 0 0 1-10 0z"/>
+              <path d="M51 39v24M44 63h14"/>
+              <path d="M36 10l4-4M40 12l5-2M38 6l1-4"/>
+            </svg>
+            <p class="timeline__time">18:00</p>
+            <h3 class="timeline__name">Հարսանյաց հանդիսություն</h3>
+            <p class="timeline__place">«Ֆլորենցիա» ռեստորան</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. ՀԱՍՑԵՆԵՐ ============ -->
+    <section class="section section--light">
+      <div class="container">
+        <h2 class="title reveal">Հասցեներ</h2>
+
+        <article class="venue reveal">
+          <!-- Նկար՝ images/church.jpg (եթե չկա, երևում է գծանկարը) -->
+          <div class="venue__photo venue__photo--church">
+            <svg class="icon icon--dark" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M40 6v10M35 11h10"/>
+              <path d="M30 34l10-18 10 18"/>
+              <path d="M30 34h20v12H30z"/>
+              <path d="M14 74V46h52v28"/>
+              <path d="M22 46l-8-8M58 46l8-8"/>
+              <path d="M34 74V62a6 6 0 0 1 12 0v12"/>
+              <path d="M8 74h64"/>
+            </svg>
+          </div>
+          <h3 class="venue__name">Սաղմոսավանք</h3>
+          <p class="venue__address">գ. Սաղմոսավան, Արագածոտնի մարզ</p>
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=40.380536,44.396672">Քարտեզ</a>
+        </article>
+
+        <article class="venue reveal">
+          <!-- Նկար՝ images/restaurant.jpg -->
+          <div class="venue__photo venue__photo--restaurant">
+            <svg class="icon icon--dark" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M22 14h14l-2 20a5 5 0 0 1-10 0z"/>
+              <path d="M29 39v24M22 63h14"/>
+              <path d="M44 14h14l-2 20a5 5 0 0 1-10 0z"/>
+              <path d="M51 39v24M44 63h14"/>
+            </svg>
+          </div>
+          <h3 class="venue__name">«Ֆլորենցիա» ռեստորան</h3>
+          <p class="venue__address">Երևան, Բարբյուսի փ. 64/2 (Հրազդանի կիրճ)</p>
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Florence+restaurant+Barbyusi+64%2F2+Yerevan">Քարտեզ</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 6. RSVP ============ -->
+    <section id="rsvp" class="section section--light section--border">
+      <div class="container reveal">
+        <h2 class="title">Խնդրում ենք հաստատել<br>Ձեր ներկայությունը</h2>
+        <p class="text text--small">մինչև նոյեմբերի 10-ը</p>
+
+        <form class="rsvp" id="rsvp-form" novalidate>
+          <fieldset class="rsvp__group">
+            <legend>Կկարողանա՞ք մասնակցել</legend>
+            <label class="radio">
+              <input type="radio" name="attending" value="Այո" checked>
+              <span>Այո, սիրով կմասնակցեմ</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="attending" value="Ոչ">
+              <span>Ոչ, ցավոք չեմ կարողանա մասնակցել</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="rsvp__group">
+            <legend>Ո՞ւմ կողմից եք</legend>
+            <label class="radio">
+              <input type="radio" name="side" value="Փեսայի" checked>
+              <span>Փեսայի</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="side" value="Հարսի">
+              <span>Հարսի</span>
+            </label>
+          </fieldset>
+
+          <div class="rsvp__row">
+            <input class="field" type="text" name="name" id="rsvp-name"
+                   placeholder="Անուն, Ազգանուն" autocomplete="name" required>
+            <input class="field" type="number" name="guests" id="rsvp-guests"
+                   placeholder="Քանի՞ հոգի" min="1" max="10" inputmode="numeric">
+          </div>
+          <textarea class="field" name="message" rows="3" placeholder="Մաղթանքներ (ըստ ցանկության)"></textarea>
+
+          <p class="rsvp__error" id="rsvp-error" role="alert"></p>
+          <button class="btn btn--wide" type="submit" id="rsvp-submit">Ուղարկել</button>
+        </form>
+
+        <p class="rsvp__success" id="rsvp-success" hidden>
+          Շնորհակալություն, Ձեր պատասխանն ընդունված է 🤍
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 7. ՎԵՐՋԻՆ ԷԿՐԱՆ ============ -->
+  <footer class="footer">
+    <div class="footer__inner reveal">
+      <p class="footer__text">Սիրով սպասում ենք Ձեզ</p>
+      <p class="footer__monogram">Եվա <span>&amp;</span> Արամ</p>
+      <p class="footer__date">20 · 11 · 2026</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
