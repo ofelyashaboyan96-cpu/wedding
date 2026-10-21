@@ -83,16 +83,51 @@ document.documentElement.classList.add("js");
 
 
 /* =========================================================
-   3. Երաժշտություն
-   Բրաուզերները թույլ չեն տալիս ձայնով երաժշտությունն ինքնուրույն
-   միացնել, դրա համար այն սկսվում է հյուրի առաջին հպումից։
+   3. Բացման էկրան + Երաժշտություն
+   Նախ փորձում ենք երաժշտությունը միացնել ավտոմատ։
+   Եթե բրաուզերը թույլ չի տալիս (հեռախոսների մեծ մասը),
+   երաժշտությունը սկսվում է «Բացել հրավերը» կոճակը սեղմելիս։
    ========================================================= */
 (function music() {
   const audio = document.getElementById("bg-music");
   const btn = document.getElementById("music-btn");
-  if (!audio || !btn) return;
+  const intro = document.getElementById("intro");
+  const introBtn = document.getElementById("intro-btn");
+
+  // Բացման էկրանը փակելու ֆունկցիա
+  function closeIntro() {
+    if (!intro || intro.classList.contains("is-hidden")) return;
+    intro.classList.add("is-hidden");
+    document.body.classList.remove("intro-open");
+  }
+
+  if (intro) {
+    document.body.classList.add("intro-open");
+  }
+
+  if (!audio || !btn) {
+    if (introBtn) introBtn.addEventListener("click", closeIntro);
+    return;
+  }
 
   let started = false; // արդյո՞ք երաժշտությունն արդեն սկսվել է կամ հյուրն ինքն է ընտրել
+
+  // «Բացել հրավերը»՝ միացնում է երաժշտությունը և փակում էկրանը
+  if (introBtn) {
+    introBtn.addEventListener("click", () => {
+      started = true;
+      audio.play().catch(() => {});
+      closeIntro();
+    });
+  }
+
+  // Փորձ՝ ավտոմատ միացնել (եթե բրաուզերը թույլ տա)
+  audio.play()
+    .then(() => {
+      started = true;
+      closeIntro();
+    })
+    .catch(() => { /* արգելված է, կսպասենք կոճակին */ });
 
   // Կոճակը ցույց ենք տալիս միայն եթե music.mp3 ֆայլը կա
   const showButton = () => { btn.hidden = false; };

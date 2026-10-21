@@ -194,13 +194,7 @@ h1, h2, h3, p { margin: 0; }
   color: var(--muted);
 }
 
-/* ---------- 4. Ծրագիր ---------- */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  margin-top: 30px;
-}
+/* ---------- Գծանկարներ ---------- */
 .icon {
   width: 72px;
   height: 72px;
@@ -211,16 +205,8 @@ h1, h2, h3, p { margin: 0; }
   stroke-linejoin: round;
   opacity: .9;
 }
-.timeline__time {
-  font-family: var(--font-num);
-  font-size: 2.6rem;
-  font-weight: 300;
-  margin-top: 8px;
-}
-.timeline__name { font-size: 1.2rem; font-weight: 600; }
-.timeline__place { color: rgba(244, 241, 236, .75); margin-top: 4px; }
 
-/* ---------- 5. Հասցեներ ---------- */
+/* ---------- 4. Հասցեներ ---------- */
 .venue { margin-top: 40px; }
 .venue + .venue { margin-top: 64px; }
 
@@ -247,7 +233,19 @@ h1, h2, h3, p { margin: 0; }
 
 .icon--dark { color: var(--ink); width: 96px; height: 96px; }
 
-.venue__name { font-size: 1.15rem; font-weight: 600; margin-top: 20px; }
+.venue__time {
+  margin-top: 22px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+.venue__time span {
+  display: block;
+  font-family: var(--font-num);
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.venue__name { font-size: 1.15rem; font-weight: 600; margin-top: 4px; }
 .venue__address { color: var(--muted); margin: 4px 0 18px; }
 
 /* ---------- Կոճակներ ---------- */
@@ -268,6 +266,45 @@ h1, h2, h3, p { margin: 0; }
 .btn:focus-visible { background: #fff; color: var(--ink); }
 .btn:disabled { opacity: .5; cursor: wait; }
 .btn--wide { min-width: 200px; margin-top: 8px; }
+.btn--light { background: #fff; color: var(--ink); border-color: #fff; }
+.btn--light:hover,
+.btn--light:focus-visible { background: transparent; color: #fff; }
+
+/* ---------- 0. Բացման էկրան ---------- */
+.intro { display: none; } /* առանց JavaScript-ի չի երևում */
+.js .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background: radial-gradient(circle at 50% 35%, #2c2c2c 0%, #0b0b0b 75%);
+  transition: opacity .9s ease, visibility .9s ease;
+}
+.js .intro.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+body.intro-open { overflow: hidden; }
+
+.intro__text { font-size: 1rem; letter-spacing: 1px; opacity: .85; }
+.intro__names {
+  font-size: clamp(2.2rem, 10vw, 3.2rem);
+  font-weight: 300;
+  margin: 14px 0 8px;
+}
+.intro__names span { font-family: var(--font-num); font-style: italic; }
+.intro__date {
+  font-family: var(--font-num);
+  letter-spacing: 4px;
+  opacity: .8;
+  margin-bottom: 36px;
+}
 
 /* ---------- 6. RSVP ձև ---------- */
 .rsvp {
@@ -423,14 +460,6 @@ textarea.field { border-radius: 18px; resize: vertical; }
 @media (min-width: 768px) {
   .section { padding: 110px 0; }
   .section--tight { padding-top: 0; }
-
-  .timeline {
-    flex-direction: row;
-    justify-content: center;
-    gap: 80px;
-  }
-  .timeline__item { flex: 0 1 240px; }
-
 }
 
 /* ---------- Շատ նեղ հեռախոսներ ---------- */
