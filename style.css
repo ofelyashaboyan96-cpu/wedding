@@ -78,7 +78,7 @@ h1, h2, h3, p { margin: 0; }
     url("hero.jpg"),
     radial-gradient(circle at 50% 30%, #3a3a3a 0%, #111 70%);
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
 }
 
 .hero__inner { padding: 0 20px; }
@@ -354,6 +354,10 @@ textarea.field { border-radius: 18px; resize: vertical; }
 
 /* ---------- 7. Վերջին էկրան ---------- */
 .footer {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 90px 20px;
   text-align: center;
   color: #fff;
@@ -370,7 +374,7 @@ textarea.field { border-radius: 18px; resize: vertical; }
   font-weight: 300;
   margin: 10px 0;
 }
-.footer__monogram span { font-family: var(--font-script); font-size: 1.2em; }
+.footer__monogram span { font-family: var(--font-num); font-style: italic; }
 .footer__date { font-family: var(--font-num); letter-spacing: 4px; opacity: .85; }
 
 /* ---------- Երաժշտության կոճակ ---------- */
